@@ -48,7 +48,17 @@
 .title,
 .description {
   text-align: center;
+}
+
+.header_nav {
+  list-style: none;
+  display: flex;
+  padding: 0px;
   margin-bottom: 1em;
+}
+
+.header_nav_item {
+  padding: 0px 8px;
 }
 
 .description {

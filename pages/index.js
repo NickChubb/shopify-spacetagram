@@ -18,7 +18,10 @@ export default function Home() {
 
             const photoArray = await getPhotos();
             const likedPhotos = getLikes();
-            console.log(likedPhotos);
+
+            // Compare photos from API with photos saved in LocalStorage
+            // If photo is saved in LocalStorage, then we want to set
+            // the liked value to true
             photoArray.forEach(photo => {
                 if (likedPhotos.some(e => e.date === photo.date)) {
                     photo.liked = true;

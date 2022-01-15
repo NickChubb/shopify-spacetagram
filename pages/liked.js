@@ -4,6 +4,11 @@ import Loading from '../src/components/Loading'
 import ImageGallery from '../src/components/home/ImageGallery'
 import { getLikes } from '../src/scripts/like'
 
+/**
+ * Liked page displays users liked photos.
+ * 
+ * @returns 
+ */
 const liked = () => {
 
     const [likedPhotos, setLikedPhotos] = useState();
@@ -12,6 +17,7 @@ const liked = () => {
     useEffect(() => {
         const fetchPhotos = async () => {
 
+            // Fetch liked photos from LocalStorage
             setLikedPhotos(getLikes());
             setLoading(false);
         }
@@ -21,13 +27,13 @@ const liked = () => {
 
     return (
         <Layout>
-            <h2>My Liked Images</h2>
 
             {
                 // Display loading spinner while awaiting API resonse 
                 loading?
                     <Loading />
                     :
+                    // If no liked photos, display message
                     likedPhotos.length?
                         <ImageGallery photos={likedPhotos} />
                         :

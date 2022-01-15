@@ -1,6 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import styles from '../../styles/Home.module.css'
 
 /**
@@ -26,7 +27,16 @@ const Layout = (props) => {
 
                 <h1 className={styles.title}>
                     Spacetagram
-                </h1>   
+                </h1>
+
+                <ul className={styles.header_nav}>
+                    <li className={styles.header_nav_item} >
+                        <h2><Link href='/' >Home</Link></h2>
+                    </li>
+                    <li className={styles.header_nav_item} >
+                        <h2><Link href='/liked' >My Liked Photos</Link></h2>
+                    </li>
+                </ul>
 
                 {props.children}
 
