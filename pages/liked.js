@@ -9,7 +9,7 @@ import { getLikes } from '../src/scripts/like'
  * 
  * @returns 
  */
-const liked = () => {
+const Liked = () => {
 
     const [likedPhotos, setLikedPhotos] = useState();
     const [ loading, setLoading ] = useState(true);
@@ -45,4 +45,4 @@ const liked = () => {
     )
 }
 
-export default liked
+export default Liked
