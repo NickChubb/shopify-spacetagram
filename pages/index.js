@@ -8,37 +8,19 @@ import { getLikes, like } from '../src/scripts/like';
 
 export default function Home() {
 
-    const [ photos, setPhotos ] = useState();
+    const [ photos, setPhotos ] = useState([]);
     const [ loading, setLoading ] = useState(true);
 
     // useEffect hook to get photos from NASA on page load
     useEffect(() => {
-
-        async function fetchPhotos() {
-
-            const photoArray = await getPhotos();
-            const likedPhotos = getLikes();
-
-            // Compare photos from API with photos saved in LocalStorage
-            // If photo is saved in LocalStorage, then we want to set
-            // the liked value to true
-            photoArray.forEach(photo => {
-                if (likedPhotos.some(e => e.date === photo.date)) {
-                    photo.liked = true;
-                } else {
-                    photo.liked = false;
-                }
-            });
-            
-            setPhotos(photoArray);
-            setLoading(false);
-        }
-        
         fetchPhotos();
-        
     }, []);
 
-    const handleScroll = async () => {
+    /**
+     * Fetch photos and concatenate them to current photos loaded
+     */
+    async function fetchPhotos() {
+
         const photoArray = await getPhotos();
         const likedPhotos = getLikes();
 
@@ -52,8 +34,9 @@ export default function Home() {
                 photo.liked = false;
             }
         });
-
+        
         setPhotos(photos.concat(photoArray));
+        setLoading(false);
     }
 
     return (
@@ -64,7 +47,7 @@ export default function Home() {
                 loading?
                     <Loading />
                     :
-                    <ImageGallery photos={photos} handleScroll={handleScroll} />
+                    <ImageGallery photos={photos} handleScroll={fetchPhotos} />
             }
 
         </Layout>
