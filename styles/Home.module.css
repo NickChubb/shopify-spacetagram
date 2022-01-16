@@ -134,6 +134,15 @@
   box-shadow: 1px 3px 5px inset #00a4db;
 }
 
+.centered_icon {
+  display: flex;
+  align-items: center;
+}
+
+.centered_icon * {
+  margin-left: 6px;
+}
+
 .logo {
   height: 1em;
   margin-left: 0.5rem;

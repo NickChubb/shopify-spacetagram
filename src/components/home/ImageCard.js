@@ -37,9 +37,9 @@ const ImageCard = ({image, likedPosts, key}) => {
                     // Depending whether image is liked in LocalStorage, display
                     // Button to like or unlike
                     liked?
-                        <button className={styles.button_unlike} onClick={handleUnlike}>Liked <AiFillHeart /></button>
+                        <button className={styles.button_unlike} onClick={handleUnlike}><div className={styles.centered_icon}>Liked <AiFillHeart /></div></button>
                         :
-                        <button className={styles.button_like} onClick={handleLike}>Like <AiOutlineHeart /></button>
+                        <button className={styles.button_like} onClick={handleLike}><div className={styles.centered_icon}>Like <AiOutlineHeart /></div></button>
                 }
             </div>
         </div>

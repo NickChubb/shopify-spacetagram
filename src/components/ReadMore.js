@@ -1,6 +1,13 @@
 import React, { useState } from 'react'
 import styles from '../../styles/Home.module.css'
 
+/**
+ * Wrap children text in Read More button, which cuts off the 
+ * text if it is too long. 
+ * 
+ * @param {String} children 
+ * @returns 
+ */
 const ReadMore = ({ children }) => {
 
     const text = children;
