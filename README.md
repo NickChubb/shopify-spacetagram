@@ -5,11 +5,12 @@ Created for the [Shopify Front-End Dev Intenship application challenge](https://
 ## Features:
 
 - Loads random images from the NASA Astronomical Photo of the Day API
+- Infinite scrolling
 - Spinning wheel while data is being fetched from the API
 - Allows user to like images, saving the links to their LocalStorage
 - Users can view the 'My Liked Photos' page to see all of their liked photos displayed
 
 ## Demo
 
-[To view a live demo, click out here.](https://shopify-spacetagram-616t918z7-nickchubb.vercel.app/)
+[To view a live demo, click here.](https://shopify-spacetagram.vercel.app/)
 

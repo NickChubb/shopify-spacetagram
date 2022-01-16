@@ -35,7 +35,7 @@ const LikedPage = () => {
                     :
                     // If no liked photos, display message
                     likedPhotos.length?
-                        <ImageGallery photos={likedPhotos} />
+                        <ImageGallery photos={likedPhotos} hasMore={false} />
                         :
                         <p>No images liked yet 😔</p>
             }

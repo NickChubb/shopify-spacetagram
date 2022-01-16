@@ -10,19 +10,19 @@ import Loading from '../Loading'
  * @param {Array} photos - Array of image objects from NASA APOD API
  * @returns 
  */
-const ImageGallery = ({ photos, handleScroll }) => {
+const ImageGallery = ({ photos, handleScroll, hasMore = true }) => {
     return (
         <InfiniteScroll
                     className={styles.grid}
                     dataLength={photos.length} //This is important field to render the next data
                     next={handleScroll}
-                    hasMore={true}
+                    hasMore={hasMore}
                     loader={
                         <Loading />
                     }
                     endMessage={
-                        <p style={{ textAlign: 'center' }}>
-                            <b>Yay! You have seen it all</b>
+                        <p style={{ textAlign: 'center', width: '100%' }}>
+                            <b>Like more photos to save them.  <a href="#">Click here to go back to the Top!</a> 👆</b>
                         </p>
                     }
         >
