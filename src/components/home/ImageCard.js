@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { like, unlike } from '../../scripts/like'
 import styles from '../../../styles/Home.module.css'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
+import ReadMore from '../ReadMore';
 
 const ImageCard = ({image, likedPosts, key}) => {
 
@@ -28,17 +29,19 @@ const ImageCard = ({image, likedPosts, key}) => {
 
     return (
         <div className={styles.card}>
-            <Image src={image.url} width={500} height={500} alt={image.title} />
-            <h2>{image.title}</h2>
-            <h3>{image.explanation}</h3>
-            {
-                // Depending whether image is liked in LocalStorage, display
-                // Button to like or unlike
-                liked?
-                    <button className={styles.button_unlike} onClick={handleUnlike}>Liked <AiFillHeart /></button>
-                    :
-                    <button className={styles.button_like} onClick={handleLike}>Like <AiOutlineHeart /></button>
-            }
+            <Image objectFit='cover' className={styles.card_image} src={image.url} width={500} height={500} alt={image.title} />
+            <div className={styles.card_body} >
+                <h2>{image.title}</h2>
+                <ReadMore>{image.explanation}</ReadMore>
+                {
+                    // Depending whether image is liked in LocalStorage, display
+                    // Button to like or unlike
+                    liked?
+                        <button className={styles.button_unlike} onClick={handleUnlike}>Liked <AiFillHeart /></button>
+                        :
+                        <button className={styles.button_like} onClick={handleLike}>Like <AiOutlineHeart /></button>
+                }
+            </div>
         </div>
     )
 }
