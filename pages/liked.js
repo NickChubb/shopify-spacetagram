@@ -9,9 +9,9 @@ import { getLikes } from '../src/scripts/like'
  * 
  * @returns 
  */
-const Liked = () => {
+const LikedPage = () => {
 
-    const [likedPhotos, setLikedPhotos] = useState();
+    const [ likedPhotos, setLikedPhotos ] = useState();
     const [ loading, setLoading ] = useState(true);
 
     useEffect(() => {
@@ -45,4 +45,4 @@ const Liked = () => {
     )
 }
 
-export default Liked
+export default LikedPage

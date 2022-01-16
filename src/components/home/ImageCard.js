@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { DateTime } from "luxon";
 import Image from 'next/image'
 import { like, unlike } from '../../scripts/like'
 import styles from '../../../styles/Home.module.css'
@@ -32,6 +33,7 @@ const ImageCard = ({image, likedPosts, key}) => {
             <Image objectFit='cover' className={styles.card_image} src={image.url} width={500} height={500} alt={image.title} />
             <div className={styles.card_body} >
                 <h2>{image.title}</h2>
+                <small>{DateTime.fromISO(image.date).toFormat('LLL dd, yyyy')}</small>
                 <ReadMore>{image.explanation}</ReadMore>
                 {
                     // Depending whether image is liked in LocalStorage, display
